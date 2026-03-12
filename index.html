@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湖北宸宇盎农业有限公司 - 现代化蛋鸡养殖企业</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #1e5aa8;
+            --primary-light: #3d7bd1;
+            --primary-dark: #154785;
+            --text-primary: #1a1a2e;
+            --text-secondary: #4a4a5a;
+            --text-muted: #7a7a8a;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+            --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            font-size: 16px;
+            letter-spacing: 0.01em;
+        }
+        
+        /* 导航栏 */
+        .navbar { 
+            background: rgba(255, 255, 255, 0.98); 
+            padding: 1.25rem 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+        
+        .nav-container { 
+            max-width: 1280px; 
+            margin: 0 auto; 
+            padding: 0 2.5rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+        }
+        
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-main { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            letter-spacing: 0.02em; 
+            color: var(--text-primary);
+        }
+        .logo-sub { 
+            font-size: 0.8125rem; 
+            color: var(--text-muted); 
+            font-weight: 400;
+            letter-spacing: 0.04em;
+        }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 3rem; 
+            list-style: none; 
+        }
+        
+        .nav-links a { 
+            color: var(--text-secondary); 
+            text-decoration: none; 
+            font-size: 0.9375rem; 
+            font-weight: 500;
+            transition: all 0.3s ease; 
+            position: relative; 
+            padding: 0.5rem 0;
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        .nav-links a::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            width: 0; 
+            height: 2.5px; 
+            background: var(--primary); 
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after { width: 100%; }
+        
+        /* Hero 区域 - 带背景图片 */
+        .hero { 
+            min-height: 85vh; 
+            background: linear-gradient(135deg, rgba(30, 90, 168, 0.82) 0%, rgba(61, 123, 209, 0.82) 100%), 
+                        url('hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            padding: 10rem 2rem 5rem;
+            position: relative;
+        }
+        
+        .hero-content { 
+            max-width: 900px; 
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content .brand-en { 
+            font-size: 0.875rem; 
+            letter-spacing: 0.4em; 
+            margin-bottom: 1.5rem; 
+            opacity: 0.9;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .hero-content h1 { 
+            font-size: 4.5rem; 
+            margin-bottom: 1.25rem; 
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .hero-content .tagline { 
+            font-size: 2rem; 
+            margin-bottom: 1.75rem; 
+            font-weight: 300;
+            letter-spacing: 0.2em;
+        }
+        
+        .hero-content .subtitle { 
+            font-size: 1.125rem; 
+            opacity: 0.95; 
+            max-width: 680px; 
+            margin: 0 auto 2.5rem; 
+            line-height: 1.9;
+            font-weight: 400;
+        }
+        
+        .cta-button { 
+            display: inline-block; 
+            background: white;
+            color: var(--primary); 
+            padding: 1.125rem 2.75rem; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 0.5rem; 
+            transition: all 0.3s ease; 
+            letter-spacing: 0.05em;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+        
+        /* 内容区块 */
+        .section { padding: 6rem 2rem; }
+        
+        .section-header { 
+            text-align: center; 
+            margin-bottom: 3.5rem; 
+        }
+        
+        .section-header h2 { 
+            font-size: 2.5rem; 
+            color: var(--text-primary);
+            margin-bottom: 0.75rem; 
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        
+        .section-header .en-title { 
+            font-size: 0.875rem; 
+            color: var(--text-muted); 
+            letter-spacing: 0.25em; 
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        /* 关于我们 */
+        .about-section { background: var(--bg-light); }
+        
+        .about-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 4rem; 
+            align-items: center; 
+        }
+        
+        .about-text h3 { 
+            font-size: 1.75rem; 
+            color: var(--primary); 
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .about-text p { 
+            margin-bottom: 1.25rem; 
+            color: var(--text-secondary); 
+            line-height: 1.9; 
+            font-size: 1rem;
+        }
+        
+        .about-stats { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.25rem; 
+            margin-top: 2rem; 
+        }
+        
+        .about-stat { 
+            text-align: center; 
+            padding: 1.5rem 1rem; 
+            background: white; 
+            border-radius: 14px; 
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .about-stat h4 { 
+            font-size: 2rem; 
+            color: var(--primary); 
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+        
+        .about-stat p { 
+            color: var(--text-muted); 
+            font-size: 0.875rem; 
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .about-images { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1rem; 
+        }
+        
+        .about-images img { 
+            width: 100%; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 14px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* 核心产品 */
+        .products-section { background: var(--bg-white); }
+        
+        .products-container { max-width: 1200px; margin: 0 auto; }
+        
+        .products-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 1.75rem; 
+        }
+        
+        .product-card { 
+            background: white; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        
+        .product-card:hover { 
+            transform: translateY(-6px); 
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-image { 
+            height: 200px; 
+            background: var(--bg-light); 
+            overflow: hidden; 
+        }
+        
+        .product-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img { transform: scale(1.05); }
+        
+        .product-info { padding: 1.5rem; }
+        
+        .product-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: var(--primary); 
+            padding: 0.35rem 0.875rem; 
+            border-radius: 20px; 
+            font-size: 0.8125rem; 
+            margin-bottom: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .product-info h3 { 
+            color: var(--text-primary); 
+            margin-bottom: 0.75rem; 
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+        
+        .product-info p { 
+            color: var(--text-secondary); 
+            font-size: 0.9375rem; 
+            line-height: 1.7;
+        }
+        
+        /* 核心优势 */
+        .advantages-section { background: var(--bg-light); }
+        
+        .advantages-container { max-width: 1200px; margin: 0 auto; }
+        
+        .advantages-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem; 
+        }
+        
+        .advantage-card { 
+            background: white; 
+            padding: 2.5rem 1.75rem; 
+            border-radius: 20px; 
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .advantage-icon { 
+            font-size: 3rem; 
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 0.875rem;
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-radius: 16px;
+        }
+        
+        .advantage-card h3 { 
+            color: var(--text-primary); 
+            margin-bottom: 1rem; 
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .advantage-card p { 
+            color: var(--text-secondary); 
+            font-size: 0.9375rem; 
+            line-height: 1.9;
+            margin-bottom: 0.35rem;
+        }
+        
+        /* 养殖基地 */
+        .farms-section { background: var(--bg-white); }
+        
+        .farms-container { max-width: 1200px; margin: 0 auto; }
+        
+        .farms-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem; 
+        }
+        
+        .farm-card { 
+            background: var(--bg-light); 
+            border-radius: 18px; 
+            overflow: hidden; 
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+        }
+        
+        .farm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .farm-image { height: 220px; overflow: hidden; }
+        
+        .farm-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s ease;
+        }
+        
+        .farm-card:hover .farm-image img { transform: scale(1.05); }
+        
+        .farm-info { padding: 1.75rem; }
+        
+        .farm-info h3 { 
+            color: var(--text-primary); 
+            margin-bottom: 0.875rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+        
+        .farm-info p { 
+            color: var(--text-secondary); 
+            font-size: 0.9375rem;
+            line-height: 1.8;
+        }
+        
+        /* 合作伙伴 */
+        .partners-section { background: var(--bg-light); }
+        
+        .partners-container { max-width: 1200px; margin: 0 auto; }
+        
+        .partners-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 1.75rem; 
+        }
+        
+        .partner-card { 
+            background: white; 
+            padding: 1.75rem; 
+            border-radius: 14px; 
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .partner-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: var(--shadow-md);
+        }
+        
+        .partner-card h4 { 
+            color: var(--text-primary); 
+            margin-bottom: 0.625rem; 
+            font-size: 1.0625rem;
+            font-weight: 700;
+        }
+        
+        .partner-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: var(--primary); 
+            padding: 0.35rem 0.75rem; 
+            border-radius: 20px; 
+            font-size: 0.8125rem; 
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .partner-card p { 
+            color: var(--text-muted); 
+            font-size: 0.9375rem;
+        }
+        
+        /* 金融合作伙伴 */
+        .banks-section { background: var(--bg-white); }
+        
+        .banks-container { max-width: 1200px; margin: 0 auto; }
+        
+        .banks-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 1.25rem; 
+        }
+        
+        .bank-item { 
+            background: var(--bg-light); 
+            padding: 1.125rem 2.25rem; 
+            border-radius: 10px; 
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-secondary); 
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .bank-item:hover { 
+            background: var(--primary); 
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 90, 168, 0.3);
+        }
+        
+        /* 联系我们 */
+        .contact-section { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); 
+            color: white; 
+            padding: 5rem 2rem;
+        }
+        
+        .contact-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            text-align: center; 
+        }
+        
+        .contact-section h2 { 
+            color: white; 
+            margin-bottom: 2rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+        }
+        
+        .contact-info { 
+            font-size: 1.0625rem; 
+            line-height: 2.2;
+        }
+        
+        .contact-info strong { 
+            font-size: 1.375rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+        
+        /* 页脚 */
+        footer { 
+            background: #0f0f1a; 
+            color: white; 
+            padding: 3.5rem 2rem 2rem; 
+        }
+        
+        .footer-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 2fr 1fr 1.5fr; 
+            gap: 3rem; 
+        }
+        
+        .footer-section h4 { 
+            margin-bottom: 1.25rem; 
+            color: white;
+            font-size: 1.0625rem;
+            font-weight: 700;
+        }
+        
+        .footer-section p, .footer-section a { 
+            color: #a0a0b0; 
+            text-decoration: none; 
+            line-height: 1.9; 
+            font-size: 0.9375rem;
+        }
+        
+        .footer-bottom { 
+            text-align: center; 
+            margin-top: 3rem; 
+            padding-top: 1.75rem; 
+            border-top: 1px solid rgba(255,255,255,0.08); 
+            color: #707080; 
+            font-size: 0.875rem;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 1024px) { 
+            .products-grid, .partners-grid { grid-template-columns: repeat(2, 1fr); } 
+            .advantages-grid, .farms-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-container { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-container { grid-template-columns: repeat(2, 1fr); }
+            .hero-content h1 { font-size: 3.5rem; }
+        }
+        
+        @media (max-width: 768px) { 
+            .hero-content h1 { font-size: 2.5rem; } 
+            .hero-content .tagline { font-size: 1.25rem; }
+            .section-header h2 { font-size: 1.875rem; }
+            .nav-links { display: none; } 
+            .products-grid, .advantages-grid, .farms-grid, .partners-grid { grid-template-columns: 1fr; } 
+            .about-stats { grid-template-columns: repeat(2, 1fr); } 
+            .footer-container { grid-template-columns: 1fr; gap: 2rem; }
+            .section { padding: 4rem 1.5rem; }
+            .hero { min-height: 70vh; padding: 8rem 1.5rem 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><img src="logo.png" alt="宸宇盎LOGO"></div>
+                <div class="logo-text">
+                    <div class="logo-main">宸宇盎农业</div>
+                    <div class="logo-sub">湖北宸宇盎农业有限公司</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#about">关于我们</a></li>
+                <li><a href="#products">核心产品</a></li>
+                <li><a href="#advantages">核心优势</a></li>
+                <li><a href="#farms">养殖基地</a></li>
+                <li><a href="#partners">合作伙伴</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="brand-en">CHENYUANG AGRICULTURE</p>
+            <h1>宸宇盎农业</h1>
+            <p class="tagline">绿色养殖 · 品质蛋品</p>
+            <p class="subtitle">现代化蛋鸡养殖企业，专注优质鸡蛋生产与供应，与聚俊缘科技等优质企业深度合作，获得浦发银行5000万授信支持</p>
+            <a href="#about" class="cta-button">了解更多</a>
+        </div>
+    </section>
+
+    <section class="section about-section" id="about">
+        <div class="section-header">
+            <h2>关于宸宇盎</h2>
+            <p class="en-title">About Chenyuang</p>
+        </div>
+        <div class="about-container">
+            <div class="about-text">
+                <h3>企业简介</h3>
+                <p>湖北宸宇盎农业有限公司是一家专注于蛋鸡养殖与鸡蛋生产的现代化农业企业。公司办公地址位于武汉市江汉区南国中心T1写字楼，养殖基地和仓库位于湖北省仙桃市，拥有标准化的养殖基地和先进的养殖设备。</p>
+                <p>公司与湖北聚俊缘科技有限公司等优质企业建立深度合作关系，年供应鸡蛋数量稳定。同时与瑞谷源创、硒格源等下游客户保持长期稳定的业务往来。</p>
+                <p>公司秉承"诚信经营、品质至上"的理念，与浦发银行、恒丰银行、普兰金服等金融机构建立战略合作，获得5000万级别的银行授信支持。</p>
+                <div class="about-stats">
+                    <div class="about-stat"><h4>标准化</h4><p>养殖基地</p></div>
+                    <div class="about-stat"><h4>优质</h4><p>蛋品供应</p></div>
+                    <div class="about-stat"><h4>5000万</h4><p>银行授信</p></div>
+                </div>
+            </div>
+            <div class="about-images">
+                <img src="farm-outdoor.png" alt="现代化养殖场外景">
+                <img src="farm-indoor.png" alt="标准化鸡舍内部">
+            </div>
+        </div>
+    </section>
+
+    <section class="section products-section" id="products">
+        <div class="products-container">
+            <div class="section-header">
+                <h2>核心产品</h2>
+                <p class="en-title">Core Products</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image"><img src="eggs.jpg" alt="新鲜鸡蛋"></div>
+                    <div class="product-info">
+                        <span class="product-tag">主打产品</span>
+                        <h3>新鲜鸡蛋</h3>
+                        <p>精选优质蛋鸡，科学饲养管理，产出营养丰富、口感鲜美的鲜鸡蛋。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="eggs-branded.jpg" alt="土鸡蛋"></div>
+                    <div class="product-info">
+                        <span class="product-tag">特色产品</span>
+                        <h3>土鸡蛋</h3>
+                        <p>采用生态散养模式，蛋黄饱满、营养丰富，深受消费者喜爱。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="https://images.unsplash.com/photo-1491524062933-cb0289261700?w=600&h=400&fit=crop" alt="富硒鸡蛋"></div>
+                    <div class="product-info">
+                        <span class="product-tag">高端产品</span>
+                        <h3>富硒鸡蛋</h3>
+                        <p>与硒格源合作开发，富含硒元素，营养价值更高。</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image"><img src="egg-powder.jpg" alt="蛋粉"></div>
+                    <div class="product-info">
+                        <span class="product-tag">加工产品</span>
+                        <h3>蛋粉</h3>
+                        <p>采用先进喷雾干燥技术，保留鸡蛋全部营养，便于储存运输。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section advantages-section" id="advantages">
+        <div class="advantages-container">
+            <div class="section-header">
+                <h2>核心优势</h2>
+                <p class="en-title">Core Competences</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">🏭</div>
+                    <h3>标准化养殖基地</h3>
+                    <p>现代化养殖设施</p>
+                    <p>科学饲养管理体系</p>
+                    <p>仙桃村里官方认证</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">💰</div>
+                    <h3>强大金融支持</h3>
+                    <p>浦发银行5000万授信</p>
+                    <p>恒丰银行战略合作</p>
+                    <p>普兰金服贴现服务</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🤝</div>
+                    <h3>稳定客户资源</h3>
+                    <p>聚俊缘科技深度合作</p>
+                    <p>瑞谷源创稳定采购</p>
+                    <p>硒格源品牌合作</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section farms-section" id="farms">
+        <div class="farms-container">
+            <div class="section-header">
+                <h2>养殖基地与仓储</h2>
+                <p class="en-title">Farming Base & Warehouse</p>
+            </div>
+            <div class="farms-grid">
+                <div class="farm-card">
+                    <div class="farm-image"><img src="chicken-house.png" alt="标准化鸡舍"></div>
+                    <div class="farm-info">
+                        <h3>仙桃标准化鸡舍</h3>
+                        <p>配备自动化喂养系统和环境控制设备，确保蛋鸡在最佳环境中生长。</p>
+                    </div>
+                </div>
+                <div class="farm-card">
+                    <div class="farm-image"><img src="farm-building.png" alt="生态养殖区"></div>
+                    <div class="farm-info">
+                        <h3>生态养殖区</h3>
+                        <p>现代化养殖设施，自动化环境控制，科学喂养管理，确保蛋鸡健康成长。</p>
+                    </div>
+                </div>
+                <div class="farm-card">
+                    <div class="farm-image"><img src="warehouse.jpg" alt="仓储物流中心"></div>
+                    <div class="farm-info">
+                        <h3>仙桃仓储物流中心</h3>
+                        <p>现代化仓储设施，配备冷链运输系统，确保产品新鲜配送。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section partners-section" id="partners">
+        <div class="partners-container">
+            <div class="section-header">
+                <h2>合作伙伴</h2>
+                <p class="en-title">Partners</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h4>湖北聚俊缘科技有限公司</h4>
+                    <span class="partner-tag">核心客户</span>
+                    <p>鸡蛋采购合作协议</p>
+                </div>
+                <div class="partner-card">
+                    <h4>瑞谷源创</h4>
+                    <span class="partner-tag">下游客户</span>
+                    <p>稳定采购合作</p>
+                </div>
+                <div class="partner-card">
+                    <h4>硒格源</h4>
+                    <span class="partner-tag">品牌合作</span>
+                    <p>富硒鸡蛋开发</p>
+                </div>
+                <div class="partner-card">
+                    <h4>浦发银行</h4>
+                    <span class="partner-tag">金融合作</span>
+                    <p>5000万授信支持</p>
+                </div>
+                <div class="partner-card">
+                    <h4>恒丰银行</h4>
+                    <span class="partner-tag">金融合作</span>
+                    <p>战略合作银行</p>
+                </div>
+                <div class="partner-card">
+                    <h4>普兰金服</h4>
+                    <span class="partner-tag">金融服务</span>
+                    <p>贴现服务合作</p>
+                </div>
+            </div>
+        </    </section>
+
+    <section class="section banks-section">
+        <div class="banks-container">
+            <div class="section-header">
+                <h2>金融合作伙伴</h2>
+                <p class="en-title">Financial Partners</p>
+            </div>
+            <div class="banks-grid">
+                <div class="bank-item">浦发银行</div>
+                <div class="bank-item">恒丰银行</div>
+                <div class="bank-item">普兰金服</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="contact-container">
+            <h2>联系我们</h2>
+            <div class="contact-info">
+                <p><strong>湖北宸宇盎农业有限公司</strong></p>
+                <p>办公地址：武汉市江汉区南国中心T1写字楼</p>
+                <p>养殖基地：湖北省仙桃市</p>
+                <p>联系人：钱勤勤 18502797799</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>关于我们</h4>
+                <p>湖北宸宇盎农业有限公司是一家专注于蛋鸡养殖与鸡蛋生产的现代化农业企业，致力于为客户提供安全、健康、优质的蛋品。</p>
+            </div>
+            <div class="footer-section">
+                <h4>产品中心</h4>
+                <p>新鲜鸡蛋<br>土鸡蛋<br>富硒鸡蛋<br>蛋粉</p>
+            </div>
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <p>湖北宸宇盎农业有限公司<br>办公地址：武汉市江汉区南国中心T1写字楼<br>联系人：钱勤勤 18502797799</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 湖北宸宇盎农业有限公司 版权所有</p>
+        </div>
+    </footer>
+</body>
+</html>
